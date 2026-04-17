@@ -1,0 +1,796 @@
+/* ========== BARCOS.CSS - VERSIÓN CON DOS CATEGORÍAS ========== */
+
+:root {
+    /* Colores principales */
+    --primary-blue: #004aad;
+    --secondary-blue: #5170ff;
+    --accent-orange: #ff9f1c;
+    --accent-orange-dark: #e68a00;
+    --placer-teal: #20B2AA;
+    --whatsapp-green: #25D366;
+    
+    /* Escala de grises */
+    --bg-light: #f8f9fa;
+    --card-bg: #e1f5fe;
+    --text-dark: #333;
+    --text-gray: #666;
+    --text-light-gray: #888;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Sombras y efectos */
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 15px rgba(0,0,0,0.1);
+    --shadow-lg: 0 15px 35px rgba(0,0,0,0.06);
+    --shadow-blue: 0 4px 20px rgba(0, 74, 173, 0.1);
+    --shadow-blue-hover: 0 5px 15px rgba(0, 74, 173, 0.3);
+    --shadow-placer: 0 4px 20px rgba(32, 178, 170, 0.2);
+    --shadow-card: 0 10px 30px rgba(0, 74, 173, 0.08);
+    --shadow-wa: 0 10px 20px rgba(37, 211, 102, 0.3);
+    
+    /* Bordes */
+    --radius-sm: 15px;
+    --radius-md: 20px;
+    --radius-lg: 25px;
+    --radius-xl: 30px;
+    --radius-full: 50px;
+    
+    /* Transiciones */
+    --transition-default: all 0.3s ease;
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ========== ESTILOS GENERALES (sin cambios) ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ========== NAVBAR (igual que antes) ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-blue);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue), var(--accent-orange));
+    border-image-slice: 1;
+    transition: var(--transition-default);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px;
+}
+
+.main-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition-bounce);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    letter-spacing: -0.5px;
+}
+
+.navis { color: var(--primary-blue); }
+.mx { color: var(--secondary-blue); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    border-radius: var(--radius-full);
+    transition: var(--transition-default);
+}
+
+.nav-links a:hover {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-blue-hover);
+}
+
+.nav-links a.active {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    box-shadow: var(--shadow-blue-hover);
+}
+
+/* ========== PAGE TITLE ========== */
+.page-title {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+}
+
+.page-title h1 {
+    font-size: clamp(2.5rem, 6vw, 3rem);
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: fadeInUp 1s ease;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 8%;
+}
+
+/* ========== MENSAJE DE BIENVENIDA ========== */
+.bienvenida-mensaje {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: var(--radius-lg);
+    padding: 30px 40px;
+    margin: 20px 0 40px 0;
+    border-left: 5px solid var(--accent-orange);
+    border-right: 5px solid var(--primary-blue);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+}
+
+.bienvenida-mensaje p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+.bienvenida-mensaje p:first-child {
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.destacado {
+    color: var(--accent-orange);
+    font-weight: 800;
+    font-size: 1.3rem;
+    display: inline-block;
+}
+
+/* ========== CATEGORY SUBTITLE ========== */
+.category-subtitle {
+    color: var(--primary-blue);
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin: 50px 0 30px 0;
+    border-left: 5px solid var(--accent-orange);
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.category-subtitle i {
+    color: var(--accent-orange);
+    font-size: 2rem;
+}
+
+.category-subtitle:first-of-type {
+    margin-top: 20px;
+}
+
+/* ========== GRID DE BARCOS ========== */
+.barcos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin: 40px 0 60px;
+}
+
+/* ========== TARJETA DE BARCO ========== */
+.barco-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(0, 74, 173, 0.1);
+    transition: var(--transition-bounce);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.barco-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 74, 173, 0.2);
+}
+
+/* ========== CARRUSEL ========== */
+.barco-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+}
+
+.barco-carousel-track-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.barco-carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.barco-carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+/* Botones del carrusel */
+.barco-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    font-size: 1rem;
+    transition: var(--transition-default);
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.barco-carousel-container:hover .barco-carousel-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.barco-prev { left: 10px; }
+.barco-next { right: 10px; }
+
+.barco-carousel-btn:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Dots */
+.barco-dots-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+    padding: 5px 10px;
+    background: rgba(255,255,255,0.9);
+    border-radius: var(--radius-full);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-default);
+}
+
+.barco-carousel-container:hover .barco-dots-container {
+    opacity: 1;
+    visibility: visible;
+}
+
+.barco-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-light-gray);
+    cursor: pointer;
+    transition: var(--transition-default);
+    border: none;
+    padding: 0;
+}
+
+.barco-dot.active {
+    background: var(--primary-blue);
+    transform: scale(1.2);
+}
+
+/* ========== CONTENIDO DE LA TARJETA ========== */
+.barco-card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.barco-card-content h3 {
+    color: var(--primary-blue);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    position: relative;
+    display: inline-block;
+}
+
+.barco-card-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-orange);
+    transition: width 0.3s ease;
+}
+
+.barco-card:hover .barco-card-content h3::after {
+    width: 100%;
+}
+
+/* ========== NUEVOS ESTILOS PARA LISTAS CON VIÑETAS ========== */
+.barco-lista {
+    list-style: none;
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+
+.barco-lista li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.barco-lista li i {
+    width: 20px;
+    color: var(--accent-orange);
+    font-size: 0.9rem;
+}
+
+/* Precio destacado */
+.precio-destacado {
+    background: linear-gradient(135deg, #fff9e6, #fff3d1);
+    border-left: 4px solid var(--accent-orange);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    margin: 12px 0 8px 0;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--primary-blue);
+}
+
+.precio-destacado i {
+    color: var(--accent-orange);
+    font-size: 1rem;
+}
+
+/* Nota importante */
+.nota-importante {
+    font-size: 0.8rem;
+    color: var(--text-light-gray);
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dashed rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nota-importante i {
+    color: var(--accent-orange);
+    font-size: 0.8rem;
+}
+
+/* ========== BOTONES POR CATEGORÍA ========== */
+.barco-card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.btn-filled {
+    padding: 12px 20px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition-default);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-pesca {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+}
+
+.btn-pesca:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-blue-hover);
+}
+
+.btn-placer {
+    background: linear-gradient(135deg, var(--placer-teal), #2E8B57);
+    color: var(--white);
+}
+
+.btn-placer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(32, 178, 170, 0.4);
+}
+
+/* ========== FOOTER (igual que antes) ========== */
+.main-footer {
+    background: linear-gradient(135deg, var(--white) 0%, #f0f5ff 100%);
+    padding: 80px 8% 40px;
+    border-top: 1px solid rgba(0, 74, 173, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+}
+
+.footer-brand .main-logo {
+    height: 70px;
+}
+
+.footer-brand p {
+    color: var(--text-gray);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.footer-social-wrap {
+    text-align: center;
+    background: var(--white);
+    padding: 30px 40px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+}
+
+.footer-social-wrap p {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+}
+
+.social-row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.social-row a {
+    font-size: 2rem;
+    transition: var(--transition-bounce);
+    color: var(--text-dark);
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f5f5f5;
+    text-decoration: none;
+}
+
+.social-row a:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.icon-fb:hover { background: #1877F2; color: white; }
+.icon-ig:hover { background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5); color: white; }
+.icon-tk:hover { background: #000000; color: white; }
+
+.footer-cta .btn-wa-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+    color: var(--white);
+    padding: 18px 40px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: var(--shadow-wa);
+    transition: var(--transition-default);
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+.footer-cta .btn-wa-highlight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+}
+
+/* ========== WHATSAPP FLOAT ========== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+    color: var(--white);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: var(--shadow-wa);
+    transition: var(--transition-bounce);
+    z-index: 1000;
+    animation: pulse 2s infinite ease-in-out;
+    border: 3px solid var(--white);
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.15);
+    animation: none;
+}
+
+/* ========== DESCRIPCIONES DE CATEGORÍA ========== */
+.categoria-descripcion {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: var(--radius-lg);
+    padding: 30px 40px;
+    margin: 20px 0 40px 0;
+    box-shadow: var(--shadow-card);
+    text-align: center;
+}
+
+.pesca-descripcion {
+    border-left: 5px solid var(--primary-blue);
+    border-right: 5px solid var(--accent-orange);
+}
+
+.placer-descripcion {
+    border-left: 5px solid var(--placer-teal);
+    border-right: 5px solid #FF6B6B;
+}
+
+.categoria-descripcion p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.categoria-descripcion p:first-child {
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.placer-descripcion p:first-child {
+    color: var(--placer-teal);
+}
+
+.capitan-nombre {
+    color: var(--accent-orange);
+    font-weight: 800;
+    font-size: 1.4rem;
+    display: inline-block;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ========== ANIMACIONES ========== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ========== MEDIA QUERIES ========== */
+@media (max-width: 1024px) {
+    .barcos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+    
+    .barco-carousel-container {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 5%;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+    
+    .page-title {
+        padding: 40px 20px;
+    }
+    
+    .container {
+        padding: 0 5%;
+    }
+    
+    .bienvenida-mensaje {
+        padding: 20px;
+    }
+    
+    .bienvenida-mensaje p {
+        font-size: 1rem;
+    }
+    
+    .bienvenida-mensaje p:first-child {
+        font-size: 1.3rem;
+    }
+    
+    .category-subtitle {
+        font-size: 1.5rem;
+        margin: 40px 0 20px;
+    }
+    
+    .category-subtitle i {
+        font-size: 1.5rem;
+    }
+    
+    .barco-card-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .btn-filled {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        align-items: center;
+    }
+    
+    .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .categoria-descripcion {
+        padding: 20px;
+    }
+    
+    .categoria-descripcion p {
+        font-size: 1rem;
+    }
+    
+    .categoria-descripcion p:first-child {
+        font-size: 1.3rem;
+    }
+    
+    .capitan-nombre {
+        font-size: 1.2rem;
+        display: block;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .barco-carousel-container {
+        height: 220px;
+    }
+    
+    .footer-social-wrap {
+        padding: 20px;
+    }
+    
+    .social-row {
+        gap: 15px;
+    }
+    
+    .social-row a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .footer-cta .btn-wa-highlight {
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+}

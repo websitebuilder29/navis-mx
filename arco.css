@@ -1,0 +1,1590 @@
+/* ========== MARINAS.CSS - VERSIÓN CON LAS MISMAS VARIABLES DEL INDEX ========== */
+
+:root {
+    /* Colores principales */
+    --primary-blue: #004aad;
+    --secondary-blue: #5170ff;
+    --accent-orange: #ff9f1c;
+    --accent-orange-dark: #e68a00;
+    --whatsapp-green: #25D366;
+    
+    /* Escala de grises */
+    --bg-light: #f8f9fa;
+    --card-bg: #e1f5fe;
+    --text-dark: #333;
+    --text-gray: #666;
+    --text-light-gray: #888;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Sombras y efectos */
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 15px rgba(0,0,0,0.1);
+    --shadow-lg: 0 15px 35px rgba(0,0,0,0.06);
+    --shadow-orange: 0 4px 15px rgba(255, 159, 28, 0.3);
+    --shadow-orange-hover: 0 6px 20px rgba(255, 159, 28, 0.5);
+    --shadow-wa: 0 10px 20px rgba(37, 211, 102, 0.3);
+    --shadow-blue: 0 4px 20px rgba(0, 74, 173, 0.1);
+    --shadow-blue-hover: 0 5px 15px rgba(0, 74, 173, 0.3);
+    --shadow-card: 0 10px 30px rgba(0, 74, 173, 0.08);
+    
+    /* Bordes */
+    --radius-sm: 15px;
+    --radius-md: 20px;
+    --radius-lg: 25px;
+    --radius-xl: 30px;
+    --radius-full: 50px;
+    
+    /* Transiciones */
+    --transition-default: all 0.3s ease;
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-slow: all 0.5s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-blue);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue), var(--accent-orange));
+    border-image-slice: 1;
+    transition: var(--transition-default);
+}
+
+.navbar.scrolled {
+    padding: 3px 8%;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 25px rgba(0, 74, 173, 0.15);
+}
+
+/* Logo con efectos */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.main-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition-bounce);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.main-logo:hover {
+    transform: rotate(5deg) scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(0,74,173,0.3));
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+.navis { 
+    color: var(--primary-blue);
+    position: relative;
+    display: inline-block;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.navis::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-orange));
+    transition: width 0.3s ease;
+}
+
+.logo-container:hover .navis::after {
+    width: 100%;
+}
+
+.mx { 
+    color: var(--secondary-blue);
+    position: relative;
+    display: inline-block;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.mx::before {
+    content: '⦿';
+    font-size: 0.5rem;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    color: var(--accent-orange);
+    animation: pulse 2s infinite;
+}
+
+/* Menú de navegación */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    border-radius: var(--radius-full);
+    transition: var(--transition-default);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    border-radius: var(--radius-full);
+    z-index: -1;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0.1;
+}
+
+.nav-links a:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-blue-hover);
+}
+
+.nav-links a.active {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    box-shadow: var(--shadow-blue-hover);
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--accent-orange);
+    border-radius: 50%;
+    animation: bounce 2s infinite;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20px;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(35deg);
+    transition: all 0.6s ease;
+}
+
+.nav-links a:hover::after {
+    left: 120%;
+}
+
+/* ========== PAGE TITLE ========== */
+.page-title {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+}
+
+.page-title h1 {
+    font-size: clamp(2.5rem, 6vw, 3rem);
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: fadeInUp 1s ease;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 8%;
+}
+
+.category-subtitle {
+    color: var(--primary-blue);
+    font-size: clamp(1.8rem, 4vw, 2rem);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--accent-orange);
+    padding-left: 20px;
+}
+
+/* ========== GRID DE ACTIVIDADES ========== */
+.actividades-grid-marinas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 30px;
+    margin: 30px 0 60px 0;
+}
+
+/* ========== TARJETA HORIZONTAL ========== */
+.card-horizontal-marinas {
+    display: flex;
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    height: 340px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 74, 173, 0.1);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-default);
+    position: relative;
+}
+
+.card-horizontal-marinas:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 74, 173, 0.2);
+}
+
+.card-horizontal-marinas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-blue), var(--accent-orange));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.card-horizontal-marinas:hover::before {
+    opacity: 1;
+}
+
+/* ========== IMAGEN ========== */
+.card-image-placeholder {
+    width: 40%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,74,173,0.3), rgba(255,159,28,0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.card-horizontal-marinas:hover .card-image-placeholder::before {
+    opacity: 1;
+}
+
+/* ========== CONTENIDO ========== */
+.card-content-marinas {
+    width: 60%;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--white);
+}
+
+.text-top h3 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.text-top h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-orange);
+    transition: width 0.3s ease;
+}
+
+.card-horizontal-marinas:hover .text-top h3::after {
+    width: 50px;
+}
+
+.short-desc {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ========== PRECIO ========== */
+.price-tag {
+    background: rgba(0, 74, 173, 0.05);
+    padding: 6px 15px;
+    border-radius: var(--radius-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 5px 0 10px 0;
+    width: fit-content;
+    transition: var(--transition-default);
+}
+
+.card-horizontal-marinas:hover .price-tag {
+    background: rgba(255, 159, 28, 0.1);
+}
+
+.price-label {
+    color: var(--text-gray);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.price-amount {
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* ========== BOTONES ========== */
+.card-buttons-marinas {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.card-buttons-marinas .btn-outline,
+.card-buttons-marinas .btn-filled {
+    flex: 1;
+    padding: 12px 8px;
+    font-size: 0.9rem;
+    text-align: center;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.card-buttons-marinas .btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.card-buttons-marinas .btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    height: 100%;
+    background: var(--primary-blue);
+    border-radius: var(--radius-full);
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.card-buttons-marinas .btn-outline:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.card-buttons-marinas .btn-outline:hover {
+    color: var(--white);
+    border-color: transparent;
+}
+
+.card-buttons-marinas .btn-filled {
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-dark));
+    border: 2px solid transparent;
+    color: var(--white);
+    box-shadow: var(--shadow-orange);
+}
+
+.card-buttons-marinas .btn-filled::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    border-radius: var(--radius-full);
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.card-buttons-marinas .btn-filled:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.card-buttons-marinas .btn-filled:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-orange-hover);
+    border-color: transparent;
+}
+
+/* ========== MODAL ========== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+.modal-content {
+    background: var(--white);
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: var(--radius-xl);
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalFade 0.3s ease;
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: sticky;
+    float: right;
+    top: 0;
+    right: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-gray);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    border-radius: 50%;
+    z-index: 10;
+    margin-bottom: 10px;
+    transition: var(--transition-default);
+}
+
+.close-modal:hover {
+    background: var(--primary-blue);
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* ========== CONTENIDO DEL MODAL ========== */
+.modal-body-content {
+    clear: both;
+    padding: 10px 5px;
+}
+
+.modal-body-content h2 {
+    color: var(--primary-blue);
+    font-size: clamp(1.8rem, 4vw, 2rem);
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--accent-orange);
+    padding-bottom: 10px;
+}
+
+.modal-body-content .modal-price {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    padding: 12px 25px;
+    border-radius: var(--radius-full);
+    display: inline-block;
+    margin: 15px 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-blue);
+}
+
+.modal-body-content h3 {
+    color: var(--primary-blue);
+    margin: 20px 0 10px;
+    font-size: 1.3rem;
+}
+
+.modal-body-content .features-list {
+    list-style: none;
+    margin: 15px 0;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 74, 173, 0.1);
+}
+
+.modal-body-content .features-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,74,173,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-body-content .features-list li:last-child {
+    border-bottom: none;
+}
+
+.modal-body-content .features-list li i {
+    color: var(--accent-orange);
+    width: 25px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.modal-body-content .modal-wa-btn {
+    background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+    color: white;
+    padding: 15px 30px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin: 20px 0;
+    transition: var(--transition-default);
+    border: 2px solid transparent;
+    box-shadow: var(--shadow-wa);
+}
+
+.modal-body-content .modal-wa-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+    border-color: white;
+}
+
+.modal-body-content .modal-wa-btn i {
+    animation: pulse 2s infinite;
+}
+
+.modal-body-content .modal-wa-btn:hover i {
+    animation: none;
+}
+
+/* ========== WHATSAPP FLOAT ========== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+    color: var(--white);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: var(--shadow-wa);
+    transition: var(--transition-bounce);
+    z-index: 1000;
+    animation: pulse 2s infinite ease-in-out;
+    border: 3px solid var(--white);
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.15) rotate(10deg);
+    animation: none;
+    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5);
+}
+
+/* ========== FOOTER ========== */
+.main-footer {
+    background: linear-gradient(135deg, var(--white) 0%, #f0f5ff 100%);
+    padding: 80px 8% 40px;
+    border-top: 1px solid rgba(0, 74, 173, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.main-footer::before {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,74,173,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+}
+
+.footer-brand .logo-container {
+    justify-content: flex-start;
+}
+
+.footer-brand .main-logo {
+    height: 70px;
+}
+
+.footer-brand .logo-text {
+    font-size: 2rem;
+}
+
+.footer-brand p {
+    color: var(--text-gray);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.footer-social-wrap {
+    text-align: center;
+    background: var(--white);
+    padding: 30px 40px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+}
+
+.footer-social-wrap p {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+}
+
+.social-row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.social-row a {
+    font-size: 2rem;
+    transition: var(--transition-bounce);
+    color: var(--text-dark);
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f5f5f5;
+    text-decoration: none;
+}
+
+.social-row a:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.icon-fb:hover { 
+    background: #1877F2; 
+    color: white;
+    box-shadow: 0 10px 20px rgba(24, 119, 242, 0.3);
+}
+
+.icon-ig:hover { 
+    background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5);
+    color: white;
+    box-shadow: 0 10px 20px rgba(225, 48, 108, 0.3);
+}
+
+.icon-tk:hover { 
+    background: #000000; 
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footer-cta .btn-wa-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+    color: var(--white);
+    padding: 18px 40px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: var(--shadow-wa);
+    animation: pulse 2s infinite ease-in-out;
+    transition: var(--transition-default);
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+.footer-cta .btn-wa-highlight:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+    animation: none;
+}
+
+/* ========== ANIMACIONES ========== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* ========== MEDIA QUERIES ========== */
+@media (max-width: 1024px) {
+    .actividades-grid-marinas {
+        gap: 25px;
+    }
+    
+    .card-horizontal-marinas {
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 5%;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .nav-links a {
+        font-size: 0.95rem;
+        padding: 8px 15px;
+    }
+    
+    .nav-links a.active::after {
+        bottom: -3px;
+        width: 5px;
+        height: 5px;
+    }
+    
+    .mx::before {
+        top: -5px;
+        right: -5px;
+        font-size: 0.4rem;
+    }
+    
+    .page-title {
+        padding: 40px 20px;
+    }
+    
+    .container {
+        padding: 0 5%;
+    }
+    
+    .actividades-grid-marinas {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-horizontal-marinas {
+        height: auto;
+        flex-direction: column;
+    }
+    
+    .card-image-placeholder {
+        width: 100%;
+        height: 220px;
+    }
+    
+    .card-content-marinas {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .card-buttons-marinas {
+        flex-direction: row;
+    }
+    
+    .modal-content {
+        margin: 10px auto;
+        padding: 20px;
+    }
+    
+    .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        align-items: center;
+    }
+    
+    .footer-brand .logo-container {
+        justify-content: center;
+    }
+    
+    .footer-brand p {
+        text-align: center;
+    }
+    
+    .footer-social-wrap {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 8px 3%;
+    }
+    
+    .logo-container {
+        gap: 8px;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .main-logo {
+        height: 40px;
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+    
+    .page-title h1 {
+        font-size: 2rem;
+    }
+    
+    .category-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .card-buttons-marinas {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .card-buttons-marinas .btn-outline,
+    .card-buttons-marinas .btn-filled {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .short-desc {
+        -webkit-line-clamp: 4;
+    }
+    
+    .text-top h3 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-body-content .modal-price {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+    
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .footer-social-wrap {
+        padding: 20px;
+    }
+    
+    .social-row {
+        gap: 15px;
+    }
+    
+    .social-row a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .footer-cta .btn-wa-highlight {
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* ========== UTILIDADES PARA ICONOS ========== */
+.fa-water, .fa-mask, .fa-swimming-pool, .fa-snowflake, 
+.fa-bluetooth-b, .fa-wind, .fa-sun, .fa-hammock, 
+.fa-cocktail, .fa-music, .fa-toilet, .fa-user-tie,
+.fa-fish, .fa-user-captain, .fa-language, .fa-utensils,
+.fa-restroom, .fa-clock, .fa-ship, .fa-users, .fa-tag,
+.fa-child, .fa-anchor, .fa-trophy, .fa-mountain,
+.fa-hand-pointer, .fa-paw, .fa-globe, .fa-heart,
+.fa-archway, .fa-gavel, .fa-star, .fa-info-circle {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* ========== NUEVOS ESTILOS PARA EL MODAL MEJORADO ========== */
+
+/* Encabezado con precio destacado */
+.modal-header-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.modal-header-section h2 {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--accent-orange);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.price-highlight {
+    background: linear-gradient(135deg, #f0f7ff, #e6f0fa);
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    margin: 15px 0;
+    position: relative;
+}
+
+.price-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-orange);
+    color: white;
+    padding: 5px 15px;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.price-box {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.price-currency {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+}
+
+.price-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    line-height: 1;
+}
+
+.price-period {
+    font-size: 1rem;
+    color: var(--text-gray);
+}
+
+.price-note {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    display: block;
+    margin-top: 5px;
+}
+
+/* Tarjetas de información */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--accent-orange);
+}
+
+.info-card i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.info-card div {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card strong {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+.info-card span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+/* Lista de precios */
+.price-list {
+    list-style: none;
+    margin: 15px 0;
+    background: white;
+    border: 1px solid rgba(0, 74, 173, 0.1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.price-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(0, 74, 173, 0.05);
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.price-list li:last-child {
+    border-bottom: none;
+}
+
+.price-list li i {
+    font-size: 1.2rem;
+    color: var(--accent-orange);
+    width: 25px;
+}
+
+.price-list li span:first-of-type {
+    flex: 1;
+    font-weight: 500;
+}
+
+.price-tag-modal {
+    background: var(--primary-blue);
+    color: white;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    font-weight: bold;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.price-tag-modal.green {
+    background: #28a745;
+}
+
+/* Grid de ubicaciones */
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.location-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-default);
+}
+
+.location-item:hover {
+    background: #e6f0fa;
+    transform: translateX(5px);
+}
+
+.location-item i {
+    color: var(--accent-orange);
+    width: 20px;
+    font-size: 1rem;
+}
+
+/* Temporada de ballenas */
+.whale-season {
+    background: linear-gradient(135deg, #e6f3ff, #d4e8ff);
+    padding: 15px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+    border-left: 4px solid var(--accent-orange);
+}
+
+.whale-season i {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+}
+
+.whale-season strong {
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+}
+
+.whale-season p {
+    margin: 5px 0;
+    color: var(--text-dark);
+}
+
+.whale-season small {
+    color: var(--text-gray);
+}
+
+/* Extras */
+.features-list.extras li {
+    background: #fff8f0;
+}
+
+.features-list.extras li i {
+    color: var(--accent-orange);
+}
+
+/* Grid de especies */
+.species-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.species-tag {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    padding: 8px 15px;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    transition: var(--transition-default);
+}
+
+.species-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-blue);
+}
+
+/* Banner de ahorro */
+.savings-banner {
+    background: linear-gradient(135deg, #ffd89b, #ffb347);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: var(--radius-md);
+    margin: 20px 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.savings-banner i {
+    font-size: 1.3rem;
+    animation: pulse 2s infinite;
+}
+
+/* Footer del modal */
+.modal-footer-note {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+.modal-footer-note i {
+    color: var(--accent-orange);
+    margin-right: 5px;
+}
+
+/* Animación de entrada del modal */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-open .modal-content {
+    animation: slideInUp 0.4s ease-out;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .price-number {
+        font-size: 2.5rem;
+    }
+    
+    .price-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .price-tag-modal {
+        align-self: flex-start;
+    }
+    
+    .locations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .species-grid {
+        justify-content: center;
+    }
+    
+    .whale-season {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .price-box {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .price-currency, .price-period {
+        font-size: 1rem;
+    }
+    
+    .price-number {
+        font-size: 2rem;
+    }
+    
+    .price-badge {
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+}
+
+/* ========== MODAL ESTILO SEGUNDA IMAGEN (VIÑETAS SIMPLES) ========== */
+
+/* Contenido principal */
+.modal-body-content h2 {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-orange);
+    font-weight: 700;
+}
+
+.modal-description {
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+/* Sección de precios - Estilo limpio */
+.pricing-section {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border-left: 4px solid var(--accent-orange);
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.price-row:last-child {
+    border-bottom: none;
+}
+
+.price-label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.price-value {
+    font-weight: 800;
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+}
+
+/* Características en viñetas SIMPLES (como en la segunda imagen) */
+.features-section {
+    margin: 25px 0;
+}
+
+.features-section h3 {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.features-list-modal {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list-modal li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+.features-list-modal li:before {
+    content: "●";
+    color: var(--accent-orange);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+/* Para barcos */
+.boat-features {
+    margin: 20px 0;
+}
+
+.boat-features .features-list-modal li {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* Notas */
+.note-section {
+    background: #fff8f0;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 3px solid var(--accent-orange);
+}
+
+.note-section p {
+    margin: 0;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+.note-section strong {
+    color: var(--accent-orange);
+}
+
+/* Botón de reserva */
+.modal-btn-reserve {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    transition: var(--transition-default);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.modal-btn-reserve:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-body-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .price-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .price-label {
+        font-size: 0.9rem;
+    }
+    
+    .price-value {
+        font-size: 1.1rem;
+    }
+    
+    .modal-btn-reserve {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-body-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .features-list-modal li {
+        font-size: 0.9rem;
+    }
+    
+    .note-section p {
+        font-size: 0.85rem;
+    }
+}

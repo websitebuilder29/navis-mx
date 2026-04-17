@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NAVIS MX | Inicio</title>
+    <link rel="stylesheet" href="styleindex.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- SITE WRAPPER - Empuja el footer hacia abajo -->
+    <div class="site-wrapper">
+      <nav class="navbar">
+        <div class="logo-container">
+          <img src="images/logo.png" alt="Logo NAVIS MX" class="main-logo" />
+          <span class="logo-text">
+            <span class="navis">NAVIS</span> <span class="mx">MX</span>
+          </span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Nosotros</a></li>
+          <li><a href="arco.html">El Arco y Más</a></li>
+          <li><a href="terrestres.html">Actividades Terrestres</a></li>
+          <li><a href="barcos.html">Barcos</a></li>
+          <li><a href="contacto.html">Contáctanos</a></li>
+        </ul>
+      </nav>
+
+      <header class="hero">
+        <div class="hero-content">
+          <h1>¡DISFRUTA LO MEJOR DE LOS CABOS Y SUS ALREDEDORES!</h1>
+          <p>
+            LAS MEJORES EXPERIENCIAS PRIVADAS EN CABO SAN LUCAS A SOLO UN CLICK
+          </p>
+          <div class="hero-actions">
+            <a href="#visitas" class="btn-main">Visitas a...</a>
+            <a href="#galeria" class="btn-main">Experiencia Navis</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="corporate-info">
+        <div class="info-grid">
+          <div class="info-box">
+            <i class="fas fa-history icon-style"></i>
+            <h2>NUESTRA HISTORIA</h2>
+            <p>
+              El negocio surgió a partir de crear mayor alcance con el turista
+              que llega a Cabo San Lucas buscando los mejores atractivos
+              turísticos, con la mejor atención personalizada al cliente.
+            </p>
+          </div>
+          <div class="info-box">
+            <i class="fas fa-rocket icon-style"></i>
+            <h2>¿CÓMO NACIÓ NAVIS MX?</h2>
+            <p>
+              Buscar nuevos retos en mi vida personal y tener una mayor
+              proyección personal haciendo que esto con el tiempo se logre como
+              una marca personal en la Baja Sur Mxo.
+            </p>
+          </div>
+          <div class="info-box">
+            <i class="fas fa-bullseye icon-style"></i>
+            <h2>MISIÓN</h2>
+            <p>
+              Somos una compañía turística enfocada en brindar las mejores
+              experiencias en Cabo San Lucas y alrededores, con el propósito de
+              que tengas tus mejores vacaciones.
+            </p>
+          </div>
+          <div class="info-box">
+            <i class="fas fa-eye icon-style"></i>
+            <h2>VISIÓN</h2>
+            <p>
+              Convertirnos en una compañía líder brindando calidad y servicio de
+              excelencia a todos nuestros clientes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="visitas" class="section-container">
+        <h2 class="section-title">VISITAS</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <h3>ISLA ESPÍRITU SANTO</h3>
+            <div class="card-img tour-espiritu"></div>
+            <div class="card-btns">
+              <button
+                class="btn-ver"
+                onclick="
+                  openModal('espiritusanto');
+                  return false;
+                "
+              >
+                Ver más...
+              </button>
+              <a
+                href="https://wa.me/526241196242?text=Hola!%20Me%20interesa%20reservar%20el%20tour%20a%20Isla%20Espíritu%20Santo"
+                target="_blank"
+                class="btn-reserva"
+                >Reservar</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>CABO PULMO</h3>
+            <div class="card-img tour-pulmo"></div>
+            <div class="card-btns">
+              <button
+                class="btn-ver"
+                onclick="
+                  openModal('cabopulmo');
+                  return false;
+                "
+              >
+                Ver más...
+              </button>
+              <a
+                href="https://wa.me/526241196242?text=Hola!%20Me%20interesa%20reservar%20el%20tour%20a%20Cabo%20Pulmo"
+                target="_blank"
+                class="btn-reserva"
+                >Reservar</a
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>LA PAZ BALANDRA</h3>
+            <div class="card-img tour-balandra"></div>
+            <div class="card-btns">
+              <button
+                class="btn-ver"
+                onclick="
+                  openModal('balandra');
+                  return false;
+                "
+              >
+                Ver más...
+              </button>
+              <a
+                href="https://wa.me/526241196242?text=Hola!%20Me%20interesa%20reservar%20el%20tour%20a%20La%20Paz%20Balandra"
+                target="_blank"
+                class="btn-reserva"
+                >Reservar</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeria" class="section-container">
+        <h2 class="section-title">EXPERIENCIA NAVIS MX</h2>
+        <div class="carousel-container">
+          <button class="carousel-btn prev" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="carousel-track-container">
+            <div class="carousel-track" id="track">
+              <div class="gallery-item item1"></div>
+              <div class="gallery-item item2"></div>
+              <div class="gallery-item item3"></div>
+              <div class="gallery-item item4"></div>
+              <div class="gallery-item item5"></div>
+              <div class="gallery-item item6"></div>
+              <div class="gallery-item item7"></div>
+              <div class="gallery-item item8"></div>
+              <div class="gallery-item item9"></div>
+              <div class="gallery-item item10"></div>
+              <div class="gallery-item item11"></div>
+              <div class="gallery-item item12"></div>
+              <div class="gallery-item item13"></div>
+              <div class="gallery-item item14"></div>
+              <div class="gallery-item item15"></div>
+              <div class="gallery-item item16"></div>
+              <div class="gallery-item item17"></div>
+              <div class="gallery-item item18"></div>
+              <div class="gallery-item item19"></div>
+              <div class="gallery-item item20"></div>
+              <div class="gallery-item item21"></div>
+              <div class="gallery-item item22"></div>
+              <div class="gallery-item item23"></div>
+              <div class="gallery-item item24"></div>
+              <div class="gallery-item item25"></div>
+              <div class="gallery-item item26"></div>
+              <div class="gallery-item item27"></div>
+              <div class="gallery-item item28"></div>
+              <div class="gallery-item item29"></div>
+            </div>
+          </div>
+          <button class="carousel-btn next" id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========== SECCIÓN DE VIDEOS VERTICALES ========== -->
+      <section id="videos" class="section-container videos-section">
+        <h2 class="section-title">VIDEOS</h2>
+
+        <div class="videos-grid-vertical">
+          <!-- Video 1 -->
+          <div class="video-card-vertical">
+            <div class="video-container-vertical">
+              <video
+                class="video-player-vertical"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="auto"
+              >
+                <source src="videos/video1Hobby.MP4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="video-card-vertical">
+            <div class="video-container-vertical">
+              <video
+                class="video-player-vertical"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="auto"
+              >
+                <source src="videos/Video2Placer.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="video-card-vertical">
+            <div class="video-container-vertical">
+              <video
+                class="video-player-vertical"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="auto"
+              >
+                <source src="videos/Video3Placer.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <!-- Video 4 -->
+          <div class="video-card-vertical">
+            <div class="video-container-vertical">
+              <video
+                class="video-player-vertical"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="auto"
+              >
+                <source src="videos/video4Hobby.MP4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <!-- Video 5 -->
+          <div class="video-card-vertical">
+            <div class="video-container-vertical">
+              <video
+                class="video-player-vertical"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="auto"
+              >
+                <source src="videos/Video5dealer.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <!-- Video 6 -->
+          <div class="video-card-vertical">
+            <div class="video-container-vertical">
+              <video
+                class="video-player-vertical"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="auto"
+              >
+                <source src="videos/Video6.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <!-- Video 7 -->
+          <div class="video-card-vertical">
+            <div class="video-container-vertical">
+              <video
+                class="video-player-vertical"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="auto"
+              >
+                <source src="videos/video7.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+          <!-- Video 8 -->
+          <div class="video-card-vertical">
+            <div class="video-container-vertical">
+              <video
+                class="video-player-vertical"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="auto"
+              >
+                <source src="videos/video8.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- FIN DEL SITE WRAPPER -->
+
+    <!-- ========== MODAL PARA INFORMACIÓN DETALLADA ========== -->
+    <div id="infoModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div id="modal-body">
+          <!-- El contenido se llenará dinámicamente con JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CONTENIDO OCULTO DE LOS MODALES ========== -->
+    <div class="hidden-modals" style="display: none">
+      <!-- Modal Isla Espíritu Santo -->
+      <div id="modal-espiritusanto">
+        <div class="modal-body-content">
+          <h2>🏝️ ISLA ESPÍRITU SANTO</h2>
+
+          <p class="modal-description">
+            Llegando al muelle fiscal por su propia cuenta o saliendo de Cabo
+            San Lucas; ambos tours con costo diferente. Vive una experiencia
+            única en la isla más hermosa del Mar de Cortés, nadando junto a
+            lobos marinos y disfrutando playas vírgenes, formaciones rocosas
+            únicas y un cierre perfecto en Balandra al atardecer.
+          </p>
+
+          <h3>✨ ¿QUÉ INCLUYE?</h3>
+          <ul class="features-list">
+            <li>🤿 Equipo completo de snorkel (careta, aletas, chaleco)</li>
+            <li>🗣️ Guía bilingüe certificado</li>
+            <li>🌿 Acceso a áreas protegidas (CONANP)</li>
+            <li>🛟 Seguro de embarcación</li>
+            <li>
+              🛥️ Embarcación de 32 pies con sombra, baño y asientos cómodos
+            </li>
+            <li>
+              ⚓ Salida desde el muelle Fiscal de La Paz a un costado del
+              monumento de la Perla
+            </li>
+          </ul>
+
+          <h3>⏰ DURACIÓN DEL TOUR</h3>
+          <div
+            style="
+              background: #f0f7ff;
+              padding: 15px;
+              border-radius: 10px;
+              margin: 15px 0;
+            "
+          >
+            <p>
+              <strong>6 a 7 horas reales de experiencia</strong> (11:00 AM a
+              6:00 PM aprox.)
+            </p>
+          </div>
+
+          <h3>🍴 ALIMENTOS Y BEBIDAS INCLUIDOS</h3>
+          <ul class="features-list">
+            <li>🥑 Ceviche fresco</li>
+            <li>🥪 Sándwiches, fruta y galletas</li>
+            <li>💧 Agua, refrescos ilimitados</li>
+          </ul>
+
+          <div
+            style="
+              background: #e6f3e6;
+              padding: 15px;
+              border-radius: 10px;
+              margin: 15px 0;
+              border-left: 4px solid #28a745;
+            "
+          >
+            <p>
+              <strong
+                ><i class="fas fa-star" style="color: #28a745"></i> TIP NAVIS
+                MX:</strong
+              >
+            </p>
+            <p>
+              🧊 Llevar tu hielera con tragos o snacks extras sin costo
+              adicional.
+            </p>
+          </div>
+
+          <h3>📍 ITINERARIO</h3>
+          <ul
+            class="features-list"
+            style="list-style-type: decimal; padding-left: 30px"
+          >
+            <li>10:50 AM: Embarque y salida desde el muelle fiscal</li>
+            <li>
+              Snorkel en La Lobera (solo observación en temporada de cría)
+            </li>
+            <li>Visita al Arco de la isla</li>
+            <li>Visita a Balandra</li>
+            <li>Snorkel en playa Corralito</li>
+            <li>Parada en playa Ensenada Grande para brindar los alimentos</li>
+            <li>
+              Exploración: Bahía San Gabriel, La Máscara y cultivo de perlas
+            </li>
+            <li>Regreso al muelle fiscal a las 6:00 pm aprox</li>
+          </ul>
+
+          <a
+            href="https://wa.me/526241196242?text=Hola!%20Me%20interesa%20reservar%20el%20tour%20a%20Isla%20Espíritu%20Santo"
+            class="modal-wa-btn"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i> Reservar ahora
+          </a>
+        </div>
+      </div>
+
+      <!-- Modal Cabo Pulmo -->
+      <div id="modal-cabopulmo">
+        <div class="modal-body-content">
+          <h2>🐠 CABO PULMO</h2>
+
+          <p class="modal-description">
+            Descubre el arrecife más vivo del Mar de Cortés, un Parque Nacional
+            y Patrimonio de la Humanidad. Hogar de cientos de especies marinas y
+            el arrecife de coral más norteño de América.
+          </p>
+
+          <h3>✨ ¿QUÉ INCLUYE?</h3>
+          <ul class="features-list">
+            <li>🤿 Equipo completo de snorkel</li>
+            <li>🗣️ Guía especializado</li>
+            <li>🌊 2 paradas de snorkel en diferentes puntos del arrecife</li>
+            <li>🥤 Bebidas y snacks</li>
+            <li>🥪 Comida estilo buffet</li>
+            <li>🚐 Transporte redondo desde el hotel</li>
+          </ul>
+
+          <h3>⏰ HORARIO</h3>
+          <div
+            style="
+              background: #f0f7ff;
+              padding: 15px;
+              border-radius: 10px;
+              margin: 15px 0;
+            "
+          >
+            <p><strong>Salida:</strong> 8:00 AM</p>
+            <p><strong>Regreso:</strong> 5:00 PM aprox.</p>
+          </div>
+
+          <a
+            href="https://wa.me/526241196242?text=Hola!%20Me%20interesa%20reservar%20el%20tour%20a%20Cabo%20Pulmo"
+            class="modal-wa-btn"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i> Reservar ahora
+          </a>
+        </div>
+      </div>
+
+      <!-- Modal La Paz Balandra -->
+      <div id="modal-balandra">
+        <div class="modal-body-content">
+          <h2>🏖️ LA PAZ BALANDRA</h2>
+
+          <p class="modal-description">
+            Conoce una de las playas más bonitas de todo México donde disfrutas
+            de unas vistas increíbles en el mar de Cortés cerca de la capital de
+            La Paz, Baja California Sur.
+          </p>
+
+          <h3>✨ ¿QUÉ INCLUYE?</h3>
+          <ul class="features-list">
+            <li>🚐 Transporte incluido</li>
+            <li>🗣️ Guía bilingüe</li>
+            <li>💧 Agua embotellada</li>
+            <li>🍳 Alimentos (desayuno y comida)</li>
+            <li>🏝️ Acceso a playa Balandra garantizado</li>
+          </ul>
+
+          <h3>⏰ DURACIÓN DEL TOUR</h3>
+          <div
+            style="
+              background: #f0f7ff;
+              padding: 15px;
+              border-radius: 10px;
+              margin: 15px 0;
+            "
+          >
+            <p><strong>12 horas aprox.</strong></p>
+          </div>
+
+          <h3>📍 ITINERARIO</h3>
+          <ul
+            class="features-list"
+            style="list-style-type: decimal; padding-left: 30px"
+          >
+            <li>
+              Pick up por las personas en la mañana desde San José del Cabo y
+              Cabo San Lucas en la mañana.
+            </li>
+            <li>Primer parada en Playa Balandra garantizada.</li>
+            <li>
+              Segunda parada en playa Coromuel donde se recomienda enjuagarse y
+              cambiarse de ropa para evitar rosaduras.
+            </li>
+            <li>
+              Comida en el restaurante a un costado del malecón de La Paz.
+            </li>
+            <li>
+              Tiempo libre para conocer el malecón; tomarse fotos en las letras
+              de La Paz y comprar recuerdos.
+            </li>
+            <li>
+              Visita al pueblo mágico de Todos Santos; hotel California y
+              mercado artesanal.
+            </li>
+          </ul>
+
+          <a
+            href="https://wa.me/526241196242?text=Hola!%20Me%20interesa%20reservar%20el%20tour%20a%20La%20Paz%20Balandra"
+            class="modal-wa-btn"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i> Reservar ahora
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="main-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="logo-container">
+            <img src="images/logo.png" alt="Logo NAVIS MX" class="main-logo" />
+            <span class="logo-text">
+              <span class="navis">NAVIS</span> <span class="mx">MX</span>
+            </span>
+          </div>
+          <p>
+            Tu mejor opción en Cabo San Lucas. Atención personalizada y tours
+            privados.
+          </p>
+        </div>
+
+        <div class="footer-social-wrap">
+          <p>SÍGUENOS</p>
+          <div class="social-row">
+            <a
+              href="https://www.facebook.com/share/1ChdNxvufA/"
+              class="icon-fb"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/cabonavismx?utm_source=qr&igsh=MXJ4dTFrNm00aGRobg=="
+              class="icon-ig"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.tiktok.com/@navis.mx.cabo?_r=1&_t=ZS-944IwYFgSqW"
+              class="icon-tk"
+              target="_blank"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-cta">
+          <a
+            href="https://wa.me/526241196242"
+            class="btn-wa-highlight"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i> RESERVAR AHORA
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/526241196242" class="whatsapp-float" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="scriptindex.js"></script>
+  </body>
+</html>
