@@ -16,7 +16,15 @@
                 <span class="navis">NAVIS</span> <span class="mx">MX</span>
             </span>
         </div>
-        <ul class="nav-links">
+        
+        <!-- Botón hamburguesa para móviles -->
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Nosotros</a></li>
             <li><a href="arco.html">Actividades Marinas</a></li>
             <li><a href="terrestres.html" class="active">Actividades Terrestres</a></li>
@@ -266,13 +274,13 @@
             </div>
         </div>
 
-        <!-- Modal que falta en tu HTML -->
-<div id="infoModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div id="modal-body"></div>
-    </div>
-</div>
+        <!-- Modal -->
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <div id="modal-body"></div>
+            </div>
+        </div>
 
     </main>
 
